@@ -1,0 +1,18 @@
+#!ipxe
+# Example central iPXE dispatcher. Replace addresses, MACs, and host names.
+set base-url http://<pxe-server>/esxi
+
+:check_net0
+iseq ${net0/mac} 00:11:22:33:44:55 || goto check_net1
+set bootmac ${net0/mac:hexhyp}
+chain --replace ${base-url}/hosts/esx01.ipxe
+
+:check_net1
+iseq ${net1/mac} 00:11:22:33:44:55 || goto unknown_host
+set bootmac ${net1/mac:hexhyp}
+chain --replace ${base-url}/hosts/esx01.ipxe
+
+:unknown_host
+echo No ESXi Kickstart mapping exists for the PXE interface.
+echo net0=${net0/mac} net1=${net1/mac}
+shell
