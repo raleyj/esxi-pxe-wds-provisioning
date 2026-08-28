@@ -1,0 +1,11 @@
+# Never commit ESXi media, extracted modules, WDS databases, or local secrets.
+ESXiProvisioning/images/
+RemoteInstall/
+**/*.iso
+**/*.bak
+**/*.pre-*
+**/*credential*.clixml
+**/*inventory*.json
+config/*-live.json
+kickstarts/*.cfg
+!kickstarts/*.example.cfg
