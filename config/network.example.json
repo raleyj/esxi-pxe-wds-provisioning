@@ -1,0 +1,19 @@
+{
+  "ServerFqdn": "tftp.example.local",
+  "PhysicalAdapterName": "Ethernet",
+  "Management": {
+    "VlanId": 104,
+    "IPv4Address": "192.0.2.10",
+    "PrefixLength": 28,
+    "GatewayIPv4": "192.0.2.1",
+    "DnsServers": ["192.0.2.2", "192.0.2.3"]
+  },
+  "PxeTftp": {
+    "VlanId": 504,
+    "IPv4Address": "198.51.100.66",
+    "PrefixLength": 27,
+    "GatewayIPv4": "198.51.100.65",
+    "ConfigureAsDefaultGateway": false,
+    "DnsServers": ["192.0.2.2", "192.0.2.3"]
+  }
+}
