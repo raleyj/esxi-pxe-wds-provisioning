@@ -1,0 +1,8 @@
+#!ipxe
+# Replace every placeholder before deployment.
+set base-url http://<pxe-server>/esxi
+set host esx01
+isset ${bootmac} || set bootmac ${net0/mac:hexhyp}
+set bootif 01-${bootmac}
+kernel ${base-url}/images/<esxi-image>/EFI/BOOT/BOOTX64.EFI -c ${base-url}/hosts/${host}/boot.cfg -U BOOTIF=${bootif}
+boot
